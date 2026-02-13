@@ -167,7 +167,7 @@ def plot_gaussian():
     boxcar /= sum(boxcar)
 
     # and a gaussian window
-    gaussian = scipy.signal.gaussian(M=11, std=2)
+    gaussian = scipy.signal.windows.gaussian(M=11, std=2)
     gaussian /= sum(gaussian)
 
     thinkplot.preplot(2)
@@ -228,7 +228,7 @@ def plot_fft_convolve():
     close = df.close.values[::-1]
 
     # compute a 30-day average using np.convolve
-    window = scipy.signal.gaussian(M=30, std=6)
+    window = scipy.signal.windows.gaussian(M=30, std=6)
     window /= window.sum()
     smoothed = np.convolve(close, window, mode='valid')
 
